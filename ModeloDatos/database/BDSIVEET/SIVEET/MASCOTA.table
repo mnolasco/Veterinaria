@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>ANIMAL</name>
+  <name>MASCOTA</name>
   <columns>
     <column>
       <name>CODIGO_ANIMAL</name>
@@ -151,7 +151,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>CODIGO_CLIENTE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>ANIMAL</name>
+            <name>MASCOTA</name>
             <schemaName>SIVEET</schemaName>
             <type>TABLE</type>
           </parent>
@@ -177,7 +177,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>RAZA</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>ANIMAL</name>
+            <name>MASCOTA</name>
             <schemaName>SIVEET</schemaName>
             <type>TABLE</type>
           </parent>
@@ -203,7 +203,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>CODIGO_ANIMAL</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>ANIMAL</name>
+            <name>MASCOTA</name>
             <schemaName>SIVEET</schemaName>
             <type>TABLE</type>
           </parent>
@@ -215,7 +215,7 @@
       <indexID class="oracle.javatools.db.NameBasedID">
         <name>ANIMAL_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>ANIMAL</name>
+          <name>MASCOTA</name>
           <schemaName>SIVEET</schemaName>
           <type>TABLE</type>
         </parent>
