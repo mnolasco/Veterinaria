@@ -1,0 +1,216 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>ATENCION_DETALLE</name>
+  <columns>
+    <column>
+      <name>CODIGO_DETALLE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INTEGER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>CODIGO_ATENCION</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INTEGER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>CODIGO_ANIMAL</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INTEGER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>CODIGO_EMPLEADO</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INTEGER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>CODIGO_SERVICIO</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INTEGER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>FECHA_ATENCION</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>FECHA_REGISTRO</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">SYSDATE</default>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>OBSERVACIONES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">200</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ATENCION_DETALLE_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CODIGO_ANIMAL</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ATENCION_DETALLE</name>
+            <schemaName>SIVEET</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SIVEET</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ANIMAL_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ANIMAL</name>
+          <schemaName>SIVEET</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SIVEET</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ATENCION_DETALLE_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CODIGO_ATENCION</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ATENCION_DETALLE</name>
+            <schemaName>SIVEET</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SIVEET</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ATENCION_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ATENCION</name>
+          <schemaName>SIVEET</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SIVEET</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ATENCION_DETALLE_FK3</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CODIGO_SERVICIO</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ATENCION_DETALLE</name>
+            <schemaName>SIVEET</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SIVEET</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SERVICIO_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SERVICIO</name>
+          <schemaName>SIVEET</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SIVEET</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>ATENCION_DETALLE_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CODIGO_DETALLE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ATENCION_DETALLE</name>
+            <schemaName>SIVEET</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SIVEET</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>ATENCION_DETALLE_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ATENCION_DETALLE</name>
+          <schemaName>SIVEET</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SIVEET</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>ATENCION_DETALLE_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>CODIGO_DETALLE</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <schema>
+        <name>SIVEET</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>SIVEET</name>
+  </schema>
+</table>
