@@ -3,8 +3,19 @@
              SeparateXMLFiles="false" Package="com.siveet.presentacion" ClientType="Generic">
   <pageMap>
     <page path="/inicio.jsf" usageId="inicioPageDef"/>
+    <page path="/WEB-INF/autenticacion.xml#flujoAutenticacion@buscarUsuario"
+          usageId="flujoAutenticacion_buscarUsuarioPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="inicioPageDef" path="com.siveet.presentacion.pageDefs.inicioPageDef"/>
+    <page id="flujoAutenticacion_buscarUsuarioPageDef"
+          path="com.siveet.presentacion.pageDefs.flujoAutenticacion_buscarUsuarioPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="SeguridadServicioDataControl" Package="com.siveet.negocio.servicios"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="SeguridadServicioLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>

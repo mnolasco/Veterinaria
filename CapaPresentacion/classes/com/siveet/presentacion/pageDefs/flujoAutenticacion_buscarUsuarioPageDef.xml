@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.1"
+                id="flujoAutenticacion_buscarUsuarioPageDef" Package="com.siveet.presentacion.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="buscarUsuario" RequiresUpdateModel="true" Action="invokeMethod" MethodName="buscarUsuario"
+                  IsViewObjectMethod="false" DataControl="SeguridadServicioDataControl"
+                  InstanceName="data.SeguridadServicioDataControl.dataProvider"
+                  ReturnName="data.SeguridadServicioDataControl.methodResults.buscarUsuario_SeguridadServicioDataControl_dataProvider_buscarUsuario_result">
+      <NamedData NDName="alias" NDValue="#{loginBean.alias}" NDType="java.lang.String"/>
+      <NamedData NDName="clave" NDValue="#{loginBean.clave}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

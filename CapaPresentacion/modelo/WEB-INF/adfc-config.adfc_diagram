@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">login</property>
+      <property
+         name="page">/login.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>login&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.69531</property>
+      <property
+         name="x">157.5</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">inicio</property>
+      <property
+         name="page">/inicio.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>inicio&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">249.69531</property>
+      <property
+         name="x">525.5</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall4">
+      <property
+         name="taskFlowId">flujoAutenticacion</property>
+      <property
+         name="activityId">flujoAutenticacion</property>
+      <property
+         name="documentReference">/WEB-INF/autenticacion.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>flujoAutenticacion&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.19531</property>
+      <property
+         name="x">337.0</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall4">
+      <property
+         name="fromOutcome">autenticar</property>
+      <property
+         name="sdm:polyPoints">R50,198.5,251.34473,296.0,250.84473,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="TaskFlowCall4"
+      to="View3">
+      <property
+         name="fromOutcome">continuar</property>
+      <property
+         name="sdm:polyPoints">R50,378.0,250.84473,484.5,249.34473,L50</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"></adfc-config>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="login">
+    <page>/login.jsf</page>
+  </view>
+  <view id="inicio">
+    <page>/inicio.jsf</page>
+  </view>
+  <task-flow-call id="flujoAutenticacion">
+    <task-flow-reference>
+      <document>/WEB-INF/autenticacion.xml</document>
+      <id>flujoAutenticacion</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>login</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>autenticar</from-outcome>
+      <to-activity-id>flujoAutenticacion</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__3">
+    <from-activity-id>flujoAutenticacion</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>continuar</from-outcome>
+      <to-activity-id>inicio</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__5">
+    <managed-bean-name>loginBean</managed-bean-name>
+    <managed-bean-class>com.siveet.presentacion.controlador.LoginBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>menuBean</managed-bean-name>
+    <managed-bean-class>com.siveet.presentacion.controlador.MenuBean</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
