@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="inicio.jsf" id="d1">
+    <af:form id="f1">
+      <af:panelGridLayout id="pgl1" dimensionsFrom="parent">
+        <af:gridRow id="gr1" height="8%">
+          <af:gridCell id="gc1" width="12%" halign="stretch" valign="stretch"></af:gridCell>
+          <af:gridCell id="gc2" width="88%" halign="stretch" valign="stretch">
+            <af:panelGroupLayout id="pgl2" halign="right" valign="middle" layout="horizontal">
+              <af:link text="Cerrar Sesión" id="l1"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr2" height="92%">
+          <af:gridCell id="gc3" width="100%" halign="stretch" valign="stretch" columnSpan="2">
+            <af:panelStretchLayout id="psl1">
+              <f:facet name="center">
+                <af:panelTabbed position="above" id="pt1" dimensionsFrom="parent">
+                  <af:showDetailItem id="tab1" text="Mantenimiento" stretchChildren="first">
+                    <af:panelSplitter id="ps1" orientation="horizontal" splitterPosition="143">
+                      <f:facet name="first">
+                        <af:panelGroupLayout id="pgl3" layout="vertical">
+                          <af:button text="Gestión de Clientes" id="b1"/>
+                          <af:button text="Gestión de Servicios" id="b2"/>
+                          <af:button text="Gestión de Productos" id="b3"/>
+                          <af:button text="Gestión de Empleados" id="b4"/>
+                        </af:panelGroupLayout>
+                      </f:facet>
+                      <f:facet name="second">
+                      </f:facet>
+                    </af:panelSplitter>
+                  </af:showDetailItem>
+                  <af:showDetailItem id="tab2" text="Atenciones" stretchChildren="first"/>
+                  <af:showDetailItem id="tab3" text="Almacen" stretchChildren="first"/>
+                </af:panelTabbed>
+              </f:facet>
+            </af:panelStretchLayout>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:form>
+  </af:document>
+</f:view>
