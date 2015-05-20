@@ -4,6 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <taskFlow taskFlowId="#{pageFlowScope.menuBean.taskFlowMostrado}" id="taskFlowMostrado"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>
