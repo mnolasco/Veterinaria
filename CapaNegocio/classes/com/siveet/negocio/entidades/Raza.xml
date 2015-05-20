@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Raza"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="RAZA"
+  AliasName="Raz"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoRaza"
+    IsNotNull="true"
+    ColumnName="CODIGO_RAZA"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="RAZA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Descripcion"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="RAZA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TipoAnimal"
+    IsNotNull="true"
+    ColumnName="TIPO_ANIMAL"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="RAZA"/>
+  <AccessorAttribute
+    Name="Mascota"
+    Association="com.siveet.negocio.entidades.fks.AnimalRazaFk1FK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.AnimalRazaFk1FK.Mascota"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.AnimalRazaFk1FK.Raza1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TipoAnimal1"
+    Association="com.siveet.negocio.entidades.fks.RazaFk1FK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.RazaFk1FK.TipoAnimal1"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.RazaFk1FK.Raza"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="RazaPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="RAZA_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Raza.CodigoRaza"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RazaFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TIPO_ANIMAL_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="RAZA_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Raza.TipoAnimal"/>
+    </AttrArray>
+  </Key>
+</Entity>

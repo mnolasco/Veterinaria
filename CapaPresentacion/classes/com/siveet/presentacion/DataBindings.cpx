@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.9.1" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.siveet.presentacion" ClientType="Generic">
+  <pageMap>
+    <page path="/inicio.jsf" usageId="inicioPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="inicioPageDef" path="com.siveet.presentacion.pageDefs.inicioPageDef"/>
+  </pageDefinitionUsages>
+</Application>

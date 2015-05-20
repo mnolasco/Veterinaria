@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AtencionDetalle"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ATENCION_DETALLE"
+  AliasName="Atd"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoDetalle"
+    ColumnName="CODIGO_DETALLE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="ATENCION_DETALLE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CodigoAtencion"
+    IsNotNull="true"
+    ColumnName="CODIGO_ATENCION"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION_DETALLE"/>
+  <Attribute
+    Name="CodigoMascota"
+    IsNotNull="true"
+    ColumnName="CODIGO_MASCOTA"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION_DETALLE"/>
+  <Attribute
+    Name="CodigoEmpleado"
+    ColumnName="CODIGO_EMPLEADO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION_DETALLE"/>
+  <Attribute
+    Name="CodigoServicio"
+    IsNotNull="true"
+    ColumnName="CODIGO_SERVICIO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION_DETALLE"/>
+  <Attribute
+    Name="FechaAtencion"
+    ColumnName="FECHA_ATENCION"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ATENCION_DETALLE"/>
+  <Attribute
+    Name="FechaRegistro"
+    IsNotNull="true"
+    ColumnName="FECHA_REGISTRO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ATENCION_DETALLE">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="Observaciones"
+    Precision="200"
+    ColumnName="OBSERVACIONES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ATENCION_DETALLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Atencion"
+    Association="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK.Atencion"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK.AtencionDetalle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Mascota"
+    Association="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK.Mascota"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK.AtencionDetalle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Servicio"
+    Association="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK.Servicio"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK.AtencionDetalle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AtencionDetallePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ATENCION_DETALLE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.AtencionDetalle.CodigoDetalle"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AtencionDetalleFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ANIMAL_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ATENCION_DETALLE_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.AtencionDetalle.CodigoMascota"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AtencionDetalleFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ATENCION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ATENCION_DETALLE_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.AtencionDetalle.CodigoAtencion"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AtencionDetalleFk3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SERVICIO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ATENCION_DETALLE_FK3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.AtencionDetalle.CodigoServicio"/>
+    </AttrArray>
+  </Key>
+</Entity>

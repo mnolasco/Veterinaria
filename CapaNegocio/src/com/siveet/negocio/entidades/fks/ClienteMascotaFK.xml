@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ClienteMascotaFK"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Cliente"
+    Cardinality="1"
+    Source="true"
+    Owner="com.siveet.negocio.entidades.Cliente">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Cliente"/>
+      <Attr Name="_foreignKey" Value="com.siveet.negocio.entidades.Cliente.ClientePk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Cliente.CodigoCliente"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Mascota"
+    Cardinality="-1"
+    Owner="com.siveet.negocio.entidades.Mascota">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Mascota"/>
+      <Attr Name="_foreignKey" Value="com.siveet.negocio.entidades.Mascota.AnimalFk2"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Mascota.CodigoCliente"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

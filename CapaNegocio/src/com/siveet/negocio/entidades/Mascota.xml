@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Mascota"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MASCOTA"
+  AliasName="Mas"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoMascota"
+    ColumnName="CODIGO_ANIMAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="MASCOTA"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CodigoCliente"
+    IsNotNull="true"
+    ColumnName="CODIGO_CLIENTE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="MASCOTA"/>
+  <Attribute
+    Name="Raza"
+    IsNotNull="true"
+    ColumnName="RAZA"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="MASCOTA"/>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MASCOTA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sexo"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SEXO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="MASCOTA"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="M">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Color"
+    Precision="30"
+    ColumnName="COLOR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MASCOTA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Castrado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="CASTRADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="MASCOTA"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="0">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Tamanio"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="TAMANIO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="MASCOTA"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FechaNacimiento"
+    ColumnName="FECHA_NACIMIENTO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MASCOTA"/>
+  <Attribute
+    Name="Detalles"
+    Precision="200"
+    ColumnName="DETALLES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MASCOTA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AtencionDetalle"
+    Association="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK.AtencionDetalle"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.MascotaAtencionDetalleFK.Mascota"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Cliente"
+    Association="com.siveet.negocio.entidades.fks.ClienteMascotaFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.ClienteMascotaFK.Cliente"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.ClienteMascotaFK.Mascota"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Raza1"
+    Association="com.siveet.negocio.entidades.fks.RazaMascotaFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.RazaMascotaFK.Raza1"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.RazaMascotaFK.Mascota"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AnimalPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ANIMAL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Mascota.CodigoMascota"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AnimalFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CLIENTE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ANIMAL_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Mascota.CodigoCliente"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AnimalRazaFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="RAZA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ANIMAL_RAZA_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Mascota.Raza"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Producto"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PRODUCTO"
+  AliasName="Pro"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoProducto"
+    ColumnName="CODIGO_PRODUCTO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="TipoProducto"
+    IsNotNull="true"
+    ColumnName="TIPO_PRODUCTO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Descripcion"
+    Precision="150"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Marca"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="MARCA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Precio"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="PRECIO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Stock"
+    IsNotNull="true"
+    ColumnName="STOCK"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="UnidadMedida"
+    IsNotNull="true"
+    ColumnName="UNIDAD_MEDIDA"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="PRODUCTO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="TipoProducto1"
+    Association="com.siveet.negocio.entidades.fks.TipoProductoProductoFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.TipoProductoProductoFK.TipoProducto1"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.TipoProductoProductoFK.Producto"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TipoUnidad"
+    Association="com.siveet.negocio.entidades.fks.TipoUnidadProductoFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.TipoUnidadProductoFK.TipoUnidad"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.TipoUnidadProductoFK.Producto"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ProductoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRODUCTO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Producto.CodigoProducto"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductoFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TIPO_PRODUCTO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTO_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Producto.TipoProducto"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductoFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TIPO_UNIDAD_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTO_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Producto.UnidadMedida"/>
+    </AttrArray>
+  </Key>
+</Entity>

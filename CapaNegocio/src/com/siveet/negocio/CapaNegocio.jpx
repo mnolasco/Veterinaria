@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CapaNegocio"
+  Version="12.1.3.9.1"
+  SeparateXMLFiles="true"
+  PackageName="com.siveet.negocio">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../../CapaNegocio.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="SiveetOncosys"/>
+    <Attr Name="_appModuleNames0" Value="com.siveet.negocio.servicios.SeguridadServicio"/>
+  </DesignTime>
+  <Containee
+    Name="entidades"
+    PackageName="com.siveet.negocio.entidades"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="fks"
+    PackageName="com.siveet.negocio.entidades.fks"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="servicios"
+    PackageName="com.siveet.negocio.servicios"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vistas"
+    PackageName="com.siveet.negocio.vistas"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

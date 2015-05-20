@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TipoProducto"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TIPO_PRODUCTO"
+  AliasName="Tpo"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoTipo"
+    IsNotNull="true"
+    ColumnName="CODIGO_TIPO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="TIPO_PRODUCTO"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Descripcion"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TIPO_PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="TIPO_PRODUCTO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Producto"
+    Association="com.siveet.negocio.entidades.fks.TipoProductoProductoFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.TipoProductoProductoFK.Producto"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.TipoProductoProductoFK.TipoProducto1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="TipoProductoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TIPO_PRODUCTO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.TipoProducto.CodigoTipo"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ComprobantePago"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="COMPROBANTE_PAGO"
+  AliasName="Cpo"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoComprobante"
+    ColumnName="CODIGO_COMPROBANTE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="COMPROBANTE_PAGO"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CodigoAtencion"
+    IsNotNull="true"
+    ColumnName="CODIGO_ATENCION"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="COMPROBANTE_PAGO"/>
+  <Attribute
+    Name="MontoAcuenta"
+    ColumnName="MONTO_ACUENTA"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COMPROBANTE_PAGO"/>
+  <Attribute
+    Name="MontoTotal"
+    ColumnName="MONTO_TOTAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COMPROBANTE_PAGO"/>
+  <Attribute
+    Name="CodigoEmpleado"
+    ColumnName="CODIGO_EMPLEADO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="COMPROBANTE_PAGO"/>
+  <Attribute
+    Name="Estado"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="COMPROBANTE_PAGO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Atencion"
+    Association="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK.Atencion"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK.ComprobantePago"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ComprobantePagoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="COMPROBANTE_PAGO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.ComprobantePago.CodigoComprobante"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ComprobantePagoFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ATENCION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="COMPROBANTE_PAGO_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.ComprobantePago.CodigoAtencion"/>
+    </AttrArray>
+  </Key>
+</Entity>

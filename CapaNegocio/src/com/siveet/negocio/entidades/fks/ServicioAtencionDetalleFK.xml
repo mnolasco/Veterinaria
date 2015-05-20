@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ServicioAtencionDetalleFK"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Servicio"
+    Cardinality="1"
+    Source="true"
+    Owner="com.siveet.negocio.entidades.Servicio">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Servicio"/>
+      <Attr Name="_foreignKey" Value="com.siveet.negocio.entidades.Servicio.ServicioPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Servicio.CodigoServicio"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AtencionDetalle"
+    Cardinality="-1"
+    Owner="com.siveet.negocio.entidades.AtencionDetalle">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AtencionDetalle"/>
+      <Attr Name="_foreignKey" Value="com.siveet.negocio.entidades.AtencionDetalle.AtencionDetalleFk3"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.AtencionDetalle.CodigoServicio"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

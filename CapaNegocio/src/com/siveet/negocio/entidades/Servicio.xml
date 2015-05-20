@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Servicio"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SERVICIO"
+  AliasName="Ser"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoServicio"
+    ColumnName="CODIGO_SERVICIO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="SERVICIO"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="Descripcion"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERVICIO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Precio"
+    IsNotNull="true"
+    ColumnName="PRECIO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERVICIO"/>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="SERVICIO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AtencionDetalle"
+    Association="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK.AtencionDetalle"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.ServicioAtencionDetalleFK.Servicio"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ServicioPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SERVICIO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Servicio.CodigoServicio"/>
+    </AttrArray>
+  </Key>
+</Entity>

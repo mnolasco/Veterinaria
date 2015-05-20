@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Empleado"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EMPLEADO"
+  AliasName="Emp"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoEmpleado"
+    ColumnName="CODIGO_EMPLEADO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="EMPLEADO"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="Descripcion"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLEADO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Cargo"
+    IsNotNull="true"
+    ColumnName="CARGO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="EMPLEADO"/>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="EMPLEADO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Alias"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="ALIAS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLEADO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Clave"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="CLAVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLEADO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmpleadoRegistra"
+    IsNotNull="true"
+    ColumnName="EMPLEADO_REGISTRA"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="EMPLEADO"/>
+  <Attribute
+    Name="FechaRegistro"
+    IsNotNull="true"
+    ColumnName="FECHA_REGISTRO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="EMPLEADO">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="Atencion"
+    Association="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK.Atencion"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK.Empleado"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="EmpleadoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="EMPLEADO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Empleado.CodigoEmpleado"/>
+    </AttrArray>
+  </Key>
+</Entity>

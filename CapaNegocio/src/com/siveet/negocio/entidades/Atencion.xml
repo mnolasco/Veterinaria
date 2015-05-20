@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Atencion"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ATENCION"
+  AliasName="Atn"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodigoAtencion"
+    ColumnName="CODIGO_ATENCION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="ATENCION"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CodigoCliente"
+    IsNotNull="true"
+    ColumnName="CODIGO_CLIENTE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION"/>
+  <Attribute
+    Name="CodigoEmpleado"
+    IsNotNull="true"
+    ColumnName="CODIGO_EMPLEADO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ATENCION"/>
+  <Attribute
+    Name="Monto"
+    IsNotNull="true"
+    ColumnName="MONTO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ATENCION"/>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ESTADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="ATENCION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"
+    DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FechaRegistro"
+    IsNotNull="true"
+    ColumnName="FECHA_REGISTRO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ATENCION">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="AtencionDetalle"
+    Association="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK.AtencionDetalle"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.AtencionDetalleAtencionFK.Atencion"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Cliente"
+    Association="com.siveet.negocio.entidades.fks.ClienteAtencionFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.ClienteAtencionFK.Cliente"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.ClienteAtencionFK.Atencion"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ComprobantePago"
+    Association="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK.ComprobantePago"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.AtencionComprobantePagoFK.Atencion"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Empleado"
+    Association="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK"
+    AssociationEnd="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK.Empleado"
+    AssociationOtherEnd="com.siveet.negocio.entidades.fks.EmpleadoAtencionFK.Atencion"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AtencionPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ATENCION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Atencion.CodigoAtencion"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AtencionFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPLEADO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ATENCION_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Atencion.CodigoEmpleado"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AtencionFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CLIENTE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ATENCION_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.siveet.negocio.entidades.Atencion.CodigoCliente"/>
+    </AttrArray>
+  </Key>
+</Entity>
